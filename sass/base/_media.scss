@@ -1,0 +1,25 @@
+@use '../abstracts/colors' as *;
+
+@media (min-width: 992px) {
+
+		.nav {
+			position: absolute;
+            width: 100vw;
+			display: flex;
+			justify-content: space-between;
+
+			&__items {
+				align-items: center;
+				padding: 1em 1em;
+				font-weight: bold;
+			}
+			&__item {
+				margin: 0.5em 0;
+				padding: 0.5em 2em;
+				font-size: 1.8rem;
+				color: $light-white;
+				text-decoration: none;
+			}
+		}
+	}
+

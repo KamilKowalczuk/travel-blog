@@ -1,4 +1,6 @@
-@forward './abstracts';
-@forward './base';
-@forward './layout/';
-@forward './components/'
+@forward './abstracts/colors';
+@forward './abstracts/mixins';
+@forward './base/reset';
+@forward './base/media';
+@forward './components/nav';
+@forward './layout/hero';

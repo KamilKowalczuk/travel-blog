@@ -1,0 +1,7 @@
+@use '../abstracts/colors' as *;
+@use '../base/reset';
+@use '../base/media';
+
+.nav {
+    z-index: 100;
+}

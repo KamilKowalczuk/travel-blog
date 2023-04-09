@@ -1,0 +1,48 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/reset';
+@use '../base/media';
+
+
+.header {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding: 2em 5em;
+    @include heroImages('../img/Hero1-small.webp');
+
+    &__slider {
+        height: 100vh;
+        width: 100vw;
+
+        &-heading {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $light-white;
+            text-shadow: 4px 4px 10px black;
+            text-align: center;
+        }
+
+        &-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $light-white;
+            text-shadow: 4px 4px 10px black;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        &-btn {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include mainButton;
+        }
+    }
+}
