@@ -22,14 +22,78 @@ body {
   max-width: 1200px;
 }
 
+.nav {
+  background-color: transparent;
+  z-index: 100;
+}
+.nav__items {
+  display: none;
+}
+.nav__item {
+  transition: color 0.3s;
+}
+.nav__item:hover {
+  color: rgb(33, 33, 33);
+}
+
+.burger-btn {
+  position: fixed;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  padding: 1em;
+  background: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  z-index: 1000;
+}
+.burger-btn:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+.burger-btn:hover .burger-btn__bars::after,
+.burger-btn:hover .burger-btn__bars::before {
+  width: 100%;
+}
+.burger-btn__box {
+  position: relative;
+  width: 40px;
+  height: 30px;
+}
+.burger-btn__bars, .burger-btn__bars::after, .burger-btn__bars::before {
+  position: absolute;
+  right: 0;
+  height: 3px;
+  content: "";
+  background-color: #EDEEF1;
+  transition: width 0.3s;
+}
+.burger-btn__bars {
+  width: 100%;
+}
+.burger-btn__bars::after {
+  top: 13px;
+  width: 60%;
+}
+.burger-btn__bars::before {
+  top: 27px;
+  width: 30%;
+  transition-delay: 0.1s;
+}
+
 @media (min-width: 992px) {
   .nav {
     position: absolute;
+    height: 20px;
     width: 100vw;
     display: flex;
     justify-content: space-between;
+    visibility: visible;
   }
   .nav__items {
+    display: block;
     align-items: center;
     padding: 1em 1em;
     font-weight: bold;
@@ -41,35 +105,61 @@ body {
     color: #EDEEF1;
     text-decoration: none;
   }
+  .burger-btn {
+    display: none;
+  }
 }
-.nav {
-  z-index: 100;
+.arrow:hover {
+  color: rgb(33, 33, 33);
 }
 
-.header {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  padding: 2em 5em;
+.hero {
   background-image: linear-gradient(180deg, rgba(148, 44, 122, 0.534), rgba(11, 11, 34, 0.8)), url("../img/Hero1-small.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
-.header__slider {
+.hero__next-btn {
+  left: 90%;
+  position: absolute;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  color: #b40733;
+  background-color: transparent;
+  font-size: 15rem;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 100;
+}
+.hero__prev-btn {
+  left: 10%;
+  position: absolute;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  color: #b40733;
+  background-color: transparent;
+  font-size: 15rem;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 100;
+}
+.hero__box {
+  position: relative;
   height: 100vh;
   width: 100vw;
 }
-.header__slider-heading {
+.hero__box-heading {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #EDEEF1;
   text-shadow: 4px 4px 10px black;
   text-align: center;
 }
-.header__slider-text {
+.hero__box-text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -80,14 +170,66 @@ body {
   text-align: center;
   letter-spacing: 3px;
 }
-.header__slider-btn {
+.hero__box-btn {
   position: absolute;
-  top: 60%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0.6em 3em;
   background: none;
   border: 2px solid #b40733;
+  border-radius: 0;
   color: #b40733;
   font-size: 1.8rem;
+  overflow: visible;
+  cursor: pointer;
+  z-index: 100;
+  transition: border 1s;
+}
+.hero__box-btn::before, .hero__box-btn::after {
+  display: block;
+  position: absolute;
+  content: "";
+  transition: 0.5s;
+  z-index: -1;
+}
+.hero__box-btn::after, .hero__box-btn::before {
+  width: 100%;
+  height: 100%;
+}
+.hero__box-btn::before {
+  top: 0;
+  left: 0;
+}
+.hero__box-btn::after {
+  bottom: 0;
+  right: 0;
+}
+.hero__box-btn:hover {
+  border: 1px solid transparent;
+  color: #b40733;
+}
+.hero__box-btn:hover::after {
+  bottom: -10px;
+  right: -10px;
+  border-bottom: 5px solid #b40733;
+  border-right: 5px solid #b40733;
+}
+.hero__box-btn:hover::before {
+  top: -10px;
+  left: -10px;
+  border-top: 5px solid #b40733;
+  border-left: 5px solid #b40733;
+}
+.hero__box-full {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .hero {
+    background-image: linear-gradient(180deg, rgba(148, 44, 122, 0.534), rgba(11, 11, 34, 0.8)), url("../img/Hero1-big.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
 }/*# sourceMappingURL=main.css.map */

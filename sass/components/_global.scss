@@ -1,0 +1,7 @@
+@use '../abstracts/colors' as *;
+@use '../base/reset';
+@use '../base/media';
+
+.arrow:hover {
+    color: $dark;
+}

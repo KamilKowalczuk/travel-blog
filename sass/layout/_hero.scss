@@ -1,48 +1,104 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/mixins' as *;
+@use '../components/global';
 @use '../base/reset';
 @use '../base/media';
 
+.hero {
+	@include heroImages('../img/Hero1-small.webp');
 
-.header {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    padding: 2em 5em;
-    @include heroImages('../img/Hero1-small.webp');
+	&__next-btn {
+		left: 90%;
+		@include arrowsButton;
+	}
+	&__prev-btn {
+		left: 10%;
+		@include arrowsButton;
+	}
 
-    &__slider {
-        height: 100vh;
-        width: 100vw;
+	&__box {
+		position: relative;
+		height: 100vh;
+		width: 100vw;
 
-        &-heading {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: $light-white;
-            text-shadow: 4px 4px 10px black;
-            text-align: center;
+		&-heading {
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: $light-white;
+			text-shadow: 4px 4px 10px black;
+			text-align: center;
+		}
+
+		&-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: $light-white;
+			text-shadow: 4px 4px 10px black;
+			font-weight: 300;
+			text-align: center;
+			letter-spacing: 3px;
+		}
+
+		&-btn {
+			position: absolute;
+			top: 56%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			@include mainButton;
+            z-index: 100;
+            transition:border 1s;
+
+
+            &::after, &::before {
+                width: 100%;
+                height: 100%;
+            }
+            &::before {
+                top: 0;
+                left: 0;
+            }
+
+            &::after {
+                bottom: 0;
+                right: 0;
+            }
+            &:hover {
+                border: 1px solid transparent;
+                color: $main-color;
+
+                &::after {
+                    bottom: -10px;
+                    right: -10px;
+                    border-bottom: 5px solid $main-color;
+                    border-right: 5px solid $main-color;
+                }
+
+                &::before {
+                    top: -10px;
+                    left: -10px;
+                    border-top: 5px solid $main-color;
+                    border-left: 5px solid $main-color;
+                }
+
+
+            }
+		}
+
+        &-full {
+            display: none;
         }
+	}
+}
 
-        &-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: $light-white;
-            text-shadow: 4px 4px 10px black;
-            font-weight: 300;
-            text-align: center;
-            letter-spacing: 3px;
-        }
+@media (min-width: 992px) {
 
-        &-btn {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            @include mainButton;
-        }
+    .hero {
+        @include heroImages('../img/Hero1-big.webp');
     }
 }
+
+// @media (min-width: 992px)

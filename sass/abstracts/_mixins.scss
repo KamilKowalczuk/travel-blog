@@ -1,8 +1,6 @@
 @use './colors' as *;
 @use '../base/reset';
 
-
-
 @mixin heroImages($bgImg) {
 	background-image: $red-gradient, url($bgImg);
 	background-size: cover;
@@ -10,11 +8,46 @@
 	background-attachment: fixed;
 }
 
+@mixin burgerBtn {
+	position: absolute;
+	right: 0;
+	height: 3px;
+	content: '';
+	background-color: $light-white;
+	transition: width 0.3s;
+}
+
 
 @mixin mainButton {
-    padding: .6em 3em;
-    background: none;
-    border: 2px solid $main-color;
-    color: $main-color;
-    font-size: 1.8rem;
+	padding: 0.6em 3em;
+	background: none;
+	border: 2px solid $main-color;
+    border-radius: 0;
+	color: $main-color;
+	font-size: 1.8rem;
+	overflow: visible;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        transition: 0.5s;
+        z-index: -1;
+    }
+}
+
+@mixin arrowsButton {
+	position: absolute;
+	top: 55%;
+	transform: translate(-50%, -50%);
+	color: $main-color;
+	background-color: transparent;
+	font-size: 15rem;
+	border: none;
+    cursor: pointer;
+    transition: color .3s;
+    z-index: 100;
+
 }
